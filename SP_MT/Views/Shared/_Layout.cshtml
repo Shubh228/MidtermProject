@@ -1,0 +1,34 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] - SP's Midterm</title>
+
+</head>
+<body>
+    <div>
+        <h1>SP's SRMS</h1>
+        <h3>
+            <a asp-controller="Students" asp-actions="Index">Students</a> &nbsp;
+            <a asp-controller="Courses" asp-actions="Index">Courses</a>
+        </h3>
+        <hr />
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <div>
+        <br />
+        <br />
+        <br />
+        <hr />
+        <h2>SP's SRMS</h2>
+        <br />
+        <br />
+        <br />
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

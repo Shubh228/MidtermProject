@@ -1,0 +1,53 @@
+﻿@using SP_MT.Models
+@model StudentsEnrolled
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Students Enrolled Edit";
+}
+
+<h2>Students Enrolled Edit</h2>
+<table>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model=> model.course.CourseNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(model=> model.course.CourseNumber)
+        </td>
+    </tr>
+     <tr>
+        <td>
+            @Html.DisplayNameFor(model=> model.course.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(model=> model.course.Title)
+        </td>
+    </tr>
+         <tr>
+        <td>
+            @Html.DisplayNameFor(model=> model.course.Credits)
+        </td>
+        <td>
+            @Html.DisplayFor(model=> model.course.Credits)
+        </td>
+    </tr>
+    <tr>
+        <td>Students Enrolled</td>
+        <td>
+            <form asp-action="EnrolledCourseEdit">
+                @Html.HiddenFor(model=>model.course.CourseId)
+                @for(int i=0; i<Model.enrolledStudents.Count; i++)
+                {
+                    @Html.HiddenFor(model=>model.enrolledStudents[i].Id)
+                    @Html.DisplayFor(model=>model.enrolledStudents[i].FirstName)
+                    @Html.DisplayFor(model=>model.enrolledStudents[i].LastName)
+                    @Html.EditorFor(model=>model.enrolledStudents[i].IsEnrolled)
+                }
+                <input type="submit" value="Update"/>
+            </form>
+        </td>
+    </tr>
+
+</table>
